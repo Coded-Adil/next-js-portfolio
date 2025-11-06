@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.className} ${ovo.className} antialiased`}
+        className={`${outfit.className} ${ovo.className} antialiased leading-6 overflow-x-hidden`}
       >
         {/* Navbar */}
         <Navbar />
