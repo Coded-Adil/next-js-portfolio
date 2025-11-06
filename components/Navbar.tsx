@@ -1,4 +1,3 @@
-'use client';
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../public/assets/logo.png";
@@ -6,8 +5,22 @@ import arrow_icon from "../public/assets/arrow-icon.png";
 import header_bg_color from "../public/assets/header-bg-color.png";
 import moon_icon from "../public/assets/moon_icon.png";
 import menu_black from "../public/assets/menu-black.png";
+import close_black from "../public/assets/close-black.png";
+import { useRef } from "react";
 
 const Navbar = () => {
+    const sideMenuRef = useRef<HTMLUListElement | null>(null);
+
+    const openMenu = () => {
+        if (sideMenuRef.current) {
+            sideMenuRef.current.style.transform = "translateX(-16rem)";
+        }
+    };
+    const closeMenu = () => {
+        if (sideMenuRef.current) {
+            sideMenuRef.current.style.transform = "translateX(16rem)";
+        }
+    };
     return (
         <>
             <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
@@ -35,12 +48,25 @@ const Navbar = () => {
 
                     <a href="#contact" className="hidden lg:flex items-center gap-3 px-10 py-2.5 font-ovo border border-gray-500 rounded-full ml-4">Contact <Image src={arrow_icon} alt="Arrow Icon" className="w-3 cursor-pointer" /></a>
 
-                    <button className="block md:hidden ml-3">
+                    <button className="block md:hidden ml-3" onClick={openMenu} aria-label="Open menu">
                         <Image src={menu_black} alt="Menu Icon" className="w-6" />
                     </button>
                 </div>
 
                 {/* Mobile Menu */}
+                <ul ref={sideMenuRef} className="flex md:hidden flex-col gap-4 px-10 py-20 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500">
+                    <div className="absolute top-6 right-6" onClick={closeMenu}>
+                        <button aria-label="Close menu">
+                            <Image src={close_black} alt="Close Menu" className="w-5 cursor-pointer" />
+                        </button>
+                    </div>
+
+                    <li><a href="#top" onClick={closeMenu} className="font-ovo">Home</a></li>
+                    <li><a href="#about" onClick={closeMenu} className="font-ovo">About me</a></li>
+                    <li><a href="#services" onClick={closeMenu} className="font-ovo">Services</a></li>
+                    <li><a href="#work" onClick={closeMenu} className="font-ovo">My Work</a></li>
+                    <li><a href="#contact" onClick={closeMenu} className="font-ovo">Contact</a></li>
+                </ul>
             </nav> 
         </>
     );
