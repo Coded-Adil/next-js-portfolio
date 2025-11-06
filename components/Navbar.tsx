@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../public/assets/logo.png";
@@ -6,20 +7,16 @@ import header_bg_color from "../public/assets/header-bg-color.png";
 import moon_icon from "../public/assets/moon_icon.png";
 import menu_black from "../public/assets/menu-black.png";
 import close_black from "../public/assets/close-black.png";
-import { useRef } from "react";
+import { useState } from "react";
 
 const Navbar = () => {
-    const sideMenuRef = useRef<HTMLUListElement | null>(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const openMenu = () => {
-        if (sideMenuRef.current) {
-            sideMenuRef.current.style.transform = "translateX(-16rem)";
-        }
+        setIsMenuOpen(true);
     };
     const closeMenu = () => {
-        if (sideMenuRef.current) {
-            sideMenuRef.current.style.transform = "translateX(16rem)";
-        }
+        setIsMenuOpen(false);
     };
     return (
         <>
@@ -54,9 +51,9 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu */}
-                <ul ref={sideMenuRef} className="flex md:hidden flex-col gap-4 px-10 py-20 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500">
-                    <div className="absolute top-6 right-6" onClick={closeMenu}>
-                        <button aria-label="Close menu">
+                <ul className={`flex md:hidden flex-col gap-4 px-10 py-20 fixed ${isMenuOpen ? 'right-0' : '-right-64'} top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500`}>
+                    <div className="absolute top-6 right-6">
+                        <button aria-label="Close menu" onClick={closeMenu}>
                             <Image src={close_black} alt="Close Menu" className="w-5 cursor-pointer" />
                         </button>
                     </div>
