@@ -13,8 +13,7 @@ const Header = () => {
                 full stack web developer based in Bangladesh.
             </h1>
             <p className="max-w-2xl mx-auto font-ovo">
-                I am a full stack web developer from Dhaka, Bangladesh with 10 years of experience in multiple
-                companies like Microsoft, Tesla and Apple.
+                I am a full stack web developer from Dhaka, Bangladesh, passionate about creating efficient and scalable web applications using modern technologies and best practices.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
                 {/* Buttons */}
