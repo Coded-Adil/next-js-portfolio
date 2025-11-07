@@ -17,13 +17,26 @@ const Navbar = () => {
     };
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
-            if(scrollY > 50) {
-                setIsScroll(true);
-            } else {
-                setIsScroll(false);
+        // Throttled scroll handler: only update state after user stops scrolling for 100ms
+        let timeoutId: number | null = null;
+
+        const handleScroll = () => {
+            if (timeoutId !== null) {
+                clearTimeout(timeoutId);
             }
-        });
+            timeoutId = window.setTimeout(() => {
+                setIsScroll(window.scrollY > 50);
+            }, 100);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (timeoutId !== null) {
+                clearTimeout(timeoutId);
+            }
+        };
     }, []);
     return (
         <>
