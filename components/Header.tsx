@@ -1,6 +1,6 @@
 import { assets } from "@/app/assets";
 import Image from "next/image";
-import HeaderBtn from "./HeaderBtn";
+import { HeaderBtn } from "./Btn";
 
 const Header = () => {
     return (

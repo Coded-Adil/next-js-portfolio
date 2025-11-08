@@ -36,11 +36,15 @@ import right_arrow from '../public/assets/right-arrow.png';
 import send_icon from '../public/assets/send-icon.png';
 import right_arrow_bold from '../public/assets/right-arrow-bold.png';
 import right_arrow_bold_dark from '../public/assets/right-arrow-bold-dark.png';
+import project1 from '../public/project/work-1.png';
+import project2 from '../public/project/work-2.png';
+import project3 from '../public/project/work-3.png';
+import project4 from '../public/project/work-4.png';
 
 interface WorkItem {
     title: string;
     description: string;
-    bgImage: string;
+    bgImage: StaticImageData;
 }
 
 interface ServiceItem {
@@ -97,6 +101,20 @@ interface Assets {
     right_arrow_bold_dark: StaticImageData;
 }
 
+interface Projects {
+    project1: StaticImageData;
+    project2: StaticImageData;
+    project3: StaticImageData;
+    project4: StaticImageData;
+}
+
+const projects: Projects = {
+    project1,
+    project2,
+    project3,
+    project4
+}
+
 export const assets: Assets = {
     user_image,
     code_icon,
@@ -141,22 +159,22 @@ export const workData: WorkItem[] = [
     {
         title: 'Frontend project',
         description: 'Web Design',
-        bgImage: '/work-1.png',
+        bgImage: projects.project1,
     },
     {
         title: 'Geo based app',
         description: 'Mobile App',
-        bgImage: '/work-2.png',
+        bgImage: projects.project2,
     },
     {
         title: 'Photography site',
         description: 'Web Design',
-        bgImage: '/work-3.png',
+        bgImage: projects.project3,
     },
     {
         title: 'UI/UX designing',
         description: 'UI/UX Design',
-        bgImage: '/work-4.png',
+        bgImage: projects.project4,
     },
 ];
 

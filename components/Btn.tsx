@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { assets } from "@/app/assets";
 
-const HeaderBtn = () => {
+export const HeaderBtn = () => {
     return (
         <>
             <a href="#contact" className="px-10 py-3 border rounded-full border-white bg-black text-white flex items-center gap-2">Contact me <Image src={assets.right_arrow_white} alt="Arrow Icon" className="w-4" /></a>
@@ -11,4 +11,10 @@ const HeaderBtn = () => {
     );
 };
 
-export default HeaderBtn;
+export const ShowMoreBtn = () => {
+    return (
+        <>
+            <a href="" className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500">Show More <Image src={assets.right_arrow_bold} alt="Right Arrow" className="w-4" /></a>
+        </>
+    );
+}
