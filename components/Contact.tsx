@@ -34,7 +34,6 @@ const Contact = () => {
                 setResult("Form Submitted Successfully");
                 form.reset();
             } else {
-                console.log("Error", data);
                 setResult(data.message || "Error submitting form");
             }
         } catch (error) {

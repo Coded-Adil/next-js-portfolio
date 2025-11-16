@@ -16,13 +16,13 @@ const Footer = () => {
                 <p>© 2025 - All right reserved by Adil Rahman.</p>
                 <ul className="flex items-center justify-center gap-10 mt-4 sm:mt-0">
                     <li>
-                        <a href="https://github.com/Coded-Adil" target="_blank">Github</a>
+                        <a href="https://github.com/Coded-Adil" target="_blank" rel="noopener noreferrer">Github</a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/coded-adil" target="_blank">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/coded-adil" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/_.adil_rahman._" target="_blank">Instagram</a>
+                        <a href="https://www.instagram.com/_.adil_rahman._" target="_blank" rel="noopener noreferrer">Instagram</a>
                     </li>
                 </ul>
             </div>
